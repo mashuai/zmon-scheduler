@@ -78,6 +78,12 @@
             <artifactId>tokens</artifactId>
             <version>0.9.8</version>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -99,7 +105,7 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.7</version>
           <configuration>
-            <skipTests>true</skipTests>
+            <skipTests>false</skipTests>
           </configuration>
         </plugin>
 
