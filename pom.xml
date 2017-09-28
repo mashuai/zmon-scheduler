@@ -136,6 +136,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>de.zalando.zmon.scheduler.ng.Application</mainClass>
+                    <layout>ZIP</layout>
                 </configuration>
             </plugin>
 
