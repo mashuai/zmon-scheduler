@@ -85,6 +85,11 @@
             <artifactId>opentracing-spring-cloud-starter</artifactId>
             <version>0.0.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.instana</groupId>
+            <artifactId>instana-java-opentracing</artifactId>
+            <version>opentracing-poc</version>
+        </dependency>
     </dependencies>
 
     <build>

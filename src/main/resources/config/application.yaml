@@ -32,4 +32,8 @@ scheduler:
   entity_service_url: http://localhost:8080
   controller_url: http://localhost:8080
   entity_properties_key: "zmon:entity:properties"
-
+opentracing:
+  spring:
+    cloud:
+      websocket:
+        enabled: false
