@@ -78,8 +78,21 @@
             <version>1.10.19</version>
             <scope>test</scope>
         </dependency>
-
-        <!--Does automatic configuration of OpenTracing tracer. NoopTracer is by default-->
+        <dependency>
+            <groupId>com.lightstep.tracer</groupId>
+            <artifactId>lightstep-tracer-jre</artifactId>
+            <version>0.12.15</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-tcnative-boringssl-static</artifactId>
+            <version>2.0.5.Final</version>
+        </dependency>
         <dependency>
             <groupId>io.opentracing.contrib</groupId>
             <artifactId>opentracing-spring-cloud-starter</artifactId>
@@ -136,7 +149,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <mainClass>de.zalando.zmon.scheduler.ng.Application</mainClass>
-                    <layout>ZIP</layout>
                 </configuration>
             </plugin>
 
