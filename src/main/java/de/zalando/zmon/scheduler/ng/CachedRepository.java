@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.Map;
+import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -20,7 +20,10 @@ public abstract class CachedRepository<I, S, T> implements Runnable {
     protected Map<I, T> currentMap;
     protected final S registry;
     protected final Tracer tracer;
-    protected static final ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1);
+
+    //  This is really bad.  We cannot trace over anything this executor runs as statically
+    //  initializing this costs us control ordering of initialization:
+    protected static final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
     private long lastUpdated = 0;
 

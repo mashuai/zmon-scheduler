@@ -24,7 +24,7 @@ public class DowntimeHttpSubscriber implements Runnable {
 
     private final DowntimeService service;
     private final String url;
-    private final ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1);
+    private static final ScheduledExecutorService executor = new ScheduledThreadPoolExecutor(1);
     private final RestTemplate restTemplate;
 
     public DowntimeHttpSubscriber(DowntimeService service, SchedulerConfig config, RestTemplate restTemplate) {

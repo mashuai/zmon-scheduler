@@ -1,3 +1,8 @@
+jaeger:
+  sampler-type: const
+  sampler-param: 1
+  service-name: zmon-scheduler-test
+
 server:
   port: 8085
 

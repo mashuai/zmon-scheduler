@@ -6,6 +6,9 @@ import de.zalando.zmon.scheduler.ng.checks.CheckDefinition;
 import de.zalando.zmon.scheduler.ng.checks.CheckRepository;
 import de.zalando.zmon.scheduler.ng.entities.Entity;
 import de.zalando.zmon.scheduler.ng.entities.EntityRepository;
+import io.opentracing.NoopTracer;
+import io.opentracing.NoopTracerFactory;
+import io.opentracing.util.GlobalTracer;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -53,6 +56,7 @@ public class EntityPropertyChangeTest {
 
     @BeforeClass
     public static void setupMocks() {
+
         when(hostCheck.getId()).thenReturn(1);
         when(hostAlert.getId()).thenReturn(1);
         when(hostAlert.getCheckDefinitionId()).thenReturn(1);
