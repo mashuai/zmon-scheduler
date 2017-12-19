@@ -79,19 +79,19 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.uber.jaeger</groupId>
-            <artifactId>jaeger-core</artifactId>
-            <version>0.22.0-RC2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.uber.jaeger</groupId>
-            <artifactId>jaeger-jaxrs2</artifactId>
-            <version>0.22.0-RC2</version>
-        </dependency>
-        <dependency>
             <groupId>io.opentracing.contrib</groupId>
             <artifactId>opentracing-spring-cloud-starter</artifactId>
             <version>0.0.7</version>
+        </dependency>
+        <dependency>
+            <groupId>io.opentracing.contrib</groupId>
+            <artifactId>opentracing-apache-httpclient</artifactId>
+            <version>0.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.instana</groupId>
+            <artifactId>instana-java-opentracing</artifactId>
+            <version>0.30.2</version>
         </dependency>
     </dependencies>
 
@@ -143,8 +143,18 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <additionalProperties>
+                        <build.name>zmon-scheduler-worker</build.name>
+                    </additionalProperties>
                     <mainClass>de.zalando.zmon.scheduler.ng.Application</mainClass>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

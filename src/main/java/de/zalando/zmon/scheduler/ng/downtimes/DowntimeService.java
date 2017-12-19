@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.uber.jaeger.context.TracingUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,7 @@ public class DowntimeService {
     private final EntityRepository entityRepository;
     private final boolean enableEntityFilter;
 
-    private final ExecutorService executor = TracingUtils.tracedExecutor(Executors.newSingleThreadExecutor());
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @Autowired
     public DowntimeService(SchedulerConfig config, EntityRepository entityRepository) {

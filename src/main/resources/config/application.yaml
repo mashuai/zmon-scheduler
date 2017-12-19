@@ -1,7 +1,8 @@
-jaeger:
-  sampler-type: const
-  sampler-param: 1
-  service-name: zmon-scheduler-test
+opentracing:
+  spring:
+    cloud:
+      websocket:
+        enabled: false
 
 server:
   port: 8085
@@ -13,6 +14,8 @@ endpoints:
   health:
     enabled: true
     sensitive: true
+  info:
+    enabled: true
 
 spring:
   jackson:
