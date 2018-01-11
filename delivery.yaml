@@ -16,16 +16,15 @@ pipeline:
           ./mvnw clean package
 
       - desc: "Push Docker Image"
-        cmd: |
-          IS_PR_BUILD=${CDP_PULL_REQUEST_NUMBER+"true"}
-          if [[ ${IS_PR_BUILD} != "true" ]]
-          then
-            VERSION=$(git describe --tags --always --dirty)
-          else
-            VERSION=${CDP_BUILD_VERSION}
-          fi
-
-          IMAGE=registry-write.opensource.zalan.do/zmon/zmon-scheduler:${VERSION}
-
-          docker build --tag "$IMAGE" .
-          docker push "$IMAGE"
+        cmd:  |
+           IS_PR_BUILD=${CDP_PULL_REQUEST_NUMBER+"true"}
+           if [[ ${IS_PR_BUILD} != "true" ]]
+           then
+             RELEASE_VERSION=$(git describe --tags --always --dirty)
+             AGENT_IMAGE=registry-write.opensource.zalan.do/zmon/zmon-scheduler:${RELEASE_VERSION}
+             docker build --tag "$AGENT_IMAGE" .
+             docker push "$AGENT_IMAGE"
+           else
+             AGENT_IMAGE=registry-write.opensource.zalan.do/zmon/zmon-scheduler:${CDP_BUILD_VERSION}
+             docker build --tag "$AGENT_IMAGE" .
+           fi
